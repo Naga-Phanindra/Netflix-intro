@@ -1,0 +1,109 @@
+# Netflix-intro
+#html code for netflix logo
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netflix Logo Using CSS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="logo">
+    <div class="netflix">
+      <span></span>
+      <span></span>
+      <span></span> 
+    </div>
+  </div>
+</body>
+</html>
+
+#css code for the design of the logo
+#style the logo
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+}
+.netflix {
+  position:center;
+  width: 360px;
+  height: 520px;
+  overflow: hidden;
+  transform: scale(.5);
+}
+
+.netflix:before {
+  content: '';
+  position: center;
+  left: 0;
+  bottom: -100px;
+  width: 100%;
+  height: 120px;
+  background: black;
+  z-index: 2;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  transform: scaleX(1.5);
+}
+.netflix:after { 
+  content: '';
+  position: center;
+  top: 0;
+  right: 0;
+  width: 400%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, black, black);
+  z-index: 3;
+  animation: animate 5s linear forwards;
+}
+@keyframes animate {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -500%;
+  }
+}
+
+.netflix span {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  background: red;
+}
+
+.netflix span:nth-child(1) {
+  background: #b00612;
+  left: 0;
+  animation: BottomToTop 1s linear forwards;
+}
+@keyframes BottomToTop {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+.netflix span:nth-child(2) {
+  background: #e50815;
+  left: 116px;
+  z-index: 1;
+  transform-origin: top-left;
+  transform: skewX(24deg);
+  box-shadow: 0 0 40px rgba(0,0,0,1);
+  animation: BottomToTop 1s linear forwards;
+  animation-delay: 1s;
+}
+.netflix span:nth-child(3) {
+  background: #b00612;
+  right: 10px;
+  animation: BottomToTop 1s linear forwards;
+  animation-delay: 2s;
+}
