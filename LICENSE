@@ -1,24 +1,106 @@
-This is free and unencumbered software released into the public domain.
+#netflix intro logo using html and css
+#writing the code in html 
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netflix Logo Using CSS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="logo">
+    <div class="netflix">
+      <span></span>
+      <span></span>
+      <span></span> 
+    </div>
+  </div>
+</body>
+</html>
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+#css for the style and transation of the logo
+#style with code
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <https://unlicense.org>
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+}      
+.netflix {
+  position: center;
+  width: 360px;
+  height: 520px;
+  overflow: hidden;
+  transform: scale(.5);
+}
+.netflix:before {
+  content: '';
+  position: center;
+  left: 0;
+  bottom: -100px;
+  width: 100%;
+  height: 120px;
+  background: black;
+  z-index: 2;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  transform: scaleX(1.5);
+}
+.netflix:after { 
+  content: '';
+  position: center;
+  top: 0;
+  right: 0;
+  width: 400%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, black, black);
+  z-index: 3;
+  animation: animate 5s linear forwards;
+}
+@keyframes animate {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -500%;
+  }
+}
+.netflix span {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  background: #fff;
+}
+.netflix span:nth-child(1) {
+  background: #b00612;
+  left: 0;
+  animation: BottomToTop 1s linear forwards;
+}
+@keyframes BottomToTop {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+.netflix span:nth-child(2) {
+  background: #e50815;
+  left: 116px;
+  z-index: 1;
+  transform-origin: top-left;
+  transform: skewX(24deg);
+  box-shadow: 0 0 40px rgba(0,0,0,1);
+  animation: BottomToTop 1s linear forwards;
+  animation-delay: 1s;
+}
+.netflix span:nth-child(3) {
+  background: #b00612;
+  right: 10px;
+  animation: BottomToTop 1s linear forwards;
+  animation-delay: 2s;
+}
